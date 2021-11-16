@@ -1,6 +1,7 @@
 class OffresController < ApplicationController
   def new
     @offre = Offre.new
+    authorize @offer
   end
 
   def create
