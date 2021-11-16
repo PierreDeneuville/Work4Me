@@ -1,21 +1,15 @@
 class OffresController < ApplicationController
   def new
     @offre = Offre.new
-    authorize @offer
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    @user == user
+    authorize @offre
   end
 
   def create
     @offre = Offre.new(offre_params)
+    authorize @offre
+    @user = current_user
     @offre.user = @user
-    if @offre.save
+    if @offre.save!
       redirect_to offre_path(@offre)
     else
       render :new
