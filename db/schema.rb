@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_162819) do
+ActiveRecord::Schema.define(version: 2021_11_16_094913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "demandes", force: :cascade do |t|
+    t.bigint "offre_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "validate"
+    t.date "date_debut"
+    t.date "date_fin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offre_id"], name: "index_demandes_on_offre_id"
+    t.index ["user_id"], name: "index_demandes_on_user_id"
+  end
+
+  create_table "offres", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "métier"
+    t.float "prix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_offres_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +48,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_162819) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "demandes", "offres"
+  add_foreign_key "demandes", "users"
+  add_foreign_key "offres", "users"
 end
