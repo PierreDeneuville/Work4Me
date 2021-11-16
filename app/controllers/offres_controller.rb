@@ -1,7 +1,14 @@
 class OffresController < ApplicationController
+
+  def show
+    @offre = Offre.find(params[:id])
+    authorize @offre
+  end
+
   def index
     @offres = policy_scope(Offre)
   end
+
   def new
     @offre = Offre.new
     authorize @offre
