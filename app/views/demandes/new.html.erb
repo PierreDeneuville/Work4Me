@@ -1,0 +1,5 @@
+<%= simple_form_for @demande do |f| %>
+    <%= f.input :date_debut, as: :date %>
+    <%= f.input :date_fin, as: :date %>
+    <%= f.submit "Confirmer", class: "btn btn-primary" %>
+  <% end %>
