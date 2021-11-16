@@ -4,6 +4,14 @@ class OffresController < ApplicationController
     authorize @offer
   end
 
+  def new?
+    create?
+  end
+
+  def update?
+    @user == user
+  end
+
   def create
     @offre = Offre.new(offre_params)
     @offre.user = @user
