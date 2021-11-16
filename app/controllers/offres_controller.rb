@@ -1,7 +1,5 @@
 class OffresController < ApplicationController
   def index
-    @offres = Offre.all
-    authorize @offres
-    # redirect_to root_path
+    @offres = policy_scope(Offre)
   end
 end
