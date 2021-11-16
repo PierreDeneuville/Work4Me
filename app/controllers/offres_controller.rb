@@ -1,6 +1,7 @@
 class OffresController < ApplicationController
   def show
-    @offres = Offre.find(params[:id])
+    @offre = Offre.find(params[:id])
+    authorize @offre
   end
 
   def index

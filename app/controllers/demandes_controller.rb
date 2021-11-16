@@ -1,11 +1,11 @@
 class DemandesController < ApplicationController
-
   def show
     @demande = Demande.find(params[:id])
   end
 
   def new
     @demande = Demande.new
+    @offre = Offre.find(params[:format])
     authorize @demande
   end
 
