@@ -3,6 +3,10 @@ class OffresController < ApplicationController
     @offres = Offre.find(params[:id])
   end
 
-  private
-  params.require(@offres).permit(@offre)
+  def index
+    @offres = policy_scope(Offre)
+  end
+
+  # private
+  # params.require(@offres).permit(@offre)
 end
