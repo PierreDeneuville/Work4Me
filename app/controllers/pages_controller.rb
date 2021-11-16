@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  def index
-    @offres = Offre.all
+  def home
   end
 end

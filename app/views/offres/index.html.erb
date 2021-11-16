@@ -1,0 +1,14 @@
+
+<div class="cards-offer">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 text-center">
+      <% @offres.each do |offre|%>
+        <div class="card-offer">
+          <%= offre.métier %>
+          <%= offre.prix %>
+          <%= link_to "+ d'info", offre_path(offre) %>
+        </div>
+      <% end %>
+    </div>  
+  </div>  
+</div>
