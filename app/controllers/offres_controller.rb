@@ -1,4 +1,5 @@
 class OffresController < ApplicationController
+
   def show
     @offre = Offre.find(params[:id])
     authorize @offre
