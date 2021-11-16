@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_095145) do
+ActiveRecord::Schema.define(version: 2021_11_16_130238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_095145) do
   create_table "demandes", force: :cascade do |t|
     t.bigint "offre_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "validate"
+    t.boolean "accepte"
     t.date "date_debut"
     t.date "date_fin"
     t.datetime "created_at", precision: 6, null: false
