@@ -1,3 +1,16 @@
-<%= @offre.métier %>
-<%= @offre.prix  %> "euros"
-<%= link_to "réserver", new_demande_path(@offre) %>
+
+<h1>Détails de l'offre</h1>
+
+<div class="container">
+  <div class="card-product">
+  <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap" width="200px">
+    <div class="card-product-infos">
+      <h2> <%=@offre.métier%></h2>
+      <p>Prix/jour: <strong><%= @offre.prix %></strong> euros.</p>
+      <p>Description: <%=@offre.description%></p>
+        <button class="btn btn-ghost">
+        <%= link_to "Réserver", new_demande_path(@offre) %>
+        </button>
+    </div>
+  </div>
+</div>
