@@ -21,7 +21,7 @@
   <div class="card">
     <div class="card-header">
       <% if @demande.user.photo.attached? %>
-        <%= cl_image_tag @demande.user.photo.key, width: 300, heigth: 300 %>
+        <%= cl_image_tag @demande.user.photo.key, width: 300, height: 250 %>
       <% else %>
       <img class="card-img-top" style="width:18rem" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
 
