@@ -11,14 +11,14 @@
       </form>
       <% if current_user.class == User %>
         <%= link_to "Mes contrats", root_path, class:"lien-profil" %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-large", alt: "avatar-large" %>
+        <% end %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign" %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "sign-in" %>
       <% end %>
     </div>
-
-
 
   </div>
 </nav>
