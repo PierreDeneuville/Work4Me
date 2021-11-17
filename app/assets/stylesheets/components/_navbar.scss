@@ -10,3 +10,9 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon-home {
+  position: fixed;
+  z-index: 999;
+  background-color: transparent !important;
+}
