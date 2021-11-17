@@ -1,18 +1,15 @@
-<div class="title align-text-center">
-  <h1>Détails de l'offre</h1>
-</div>
 
-<div class="container-offre">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-      <%= @offre.métier %> <br>
-      <%= @offre.prix %> "euros"
-      <button type="button" class="btn btn-danger">
-      <%= link_to "réserver", new_demande_path(@offre) %>
-      </button>
+<h1>Détails de l'offre</h1>
+
+<div class="container">
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h2> <%=@offre.métier%></h2>
+      <p>Prix/jour: <strong><%= @offre.prix %></strong> euros.</p>
+      <p><%=@offre.description%></p>
+        <button class="btn btn-ghost">
+        <%= link_to "Réserver", new_demande_path(@offre) %>
+        </button>
     </div>
   </div>
-
-
-
 </div>
