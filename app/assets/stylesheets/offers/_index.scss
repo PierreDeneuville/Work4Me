@@ -22,7 +22,7 @@
 }
 
 .banner {
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   padding: 150px 0;
   margin-bottom: 30px;
@@ -49,12 +49,10 @@
   background: #2c2b2b;
   text-align: center;
   justify-content: space-between;
-  height: 100px;
   padding: 60px;
   color: #6B6C6C;
 }
 .footer-links {
-  display: flex;
   align-items: center;
 }
 .footer-links a {
@@ -76,6 +74,11 @@
   text-align: center;
   align-items: center;
 }
+
+// .btn primary {
+//   background-color: #1EDD88;
+//   border-color: #1EDD88;
+// }
 
 // @media (min-width: 1200px)
 //   .cards-offer {
