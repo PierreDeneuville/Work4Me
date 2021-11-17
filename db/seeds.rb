@@ -15,7 +15,8 @@ require 'faker'
   user = User.new(email: email, name: name, localisation: localisation, password: password)
   metier = Faker::Job.title
   prix = rand(100)
-  offre = Offre.new(métier: metier, prix: prix)
+  description = Faker::Superhero.power
+  offre = Offre.new(métier: metier, prix: prix, description: description)
   offre.user = User.all.sample
   user.save!
   offre.save!
