@@ -18,7 +18,6 @@ class DemandesController < ApplicationController
     @user = current_user
     @demande.user = @user
     @demande.offre = @offre
-    @demande.accepte = false
     authorize @demande
     if @demande.save
       redirect_to demande_path(@demande)
