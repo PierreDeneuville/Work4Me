@@ -1,3 +1,4 @@
+
 <div class="container-demande-show">
   <div class="card" style="width: 18rem;">
     <% if @demande.offre.user.photo.attached? %>
@@ -7,7 +8,7 @@
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= @demande.offre.user.name.capitalize %>, <%= @demande.offre.métier.capitalize %></h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet neque impedit praesentium. Fuga quasi ducimus repudiandae voluptas excepturi recusandae incidunt veritatis nostrum velit, eaque voluptate explicabo, possimus minus, adipisci reprehenderit!</p>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><%= @demande.offre.user.localisation.capitalize %></li>
@@ -17,4 +18,31 @@
       <%= link_to "Revoir l'offre", offre_path(@demande.offre), class: "card-link" %>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      <%= cl_image_tag @demande.user.photo.key, width: 300, heigth: 300 %>
+
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">Recruteur: <%= @demande.user.name.capitalize %></li>
+        <li class="list-group-item">Début de la mission: <%= @demande.date_debut %></li>
+        <li class="list-group-item">Fin de la mission: <%= @demande.date_fin %></li>
+        <li class="list-group-item">Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</li>
+        <li class="list-group-item">
+          Etat de la demande: <% if @demande.accepte.nil? %>
+                                En attente
+                              <% elsif @demande.accepte? %>
+                                <i class="far fa-check-square"></i>
+                              <% else %>
+                                <i class="fas fa-times"></i>
+                              <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
 </div>
