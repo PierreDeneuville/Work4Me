@@ -1,5 +1,8 @@
 class DemandePolicy < ApplicationPolicy
 
+  def show?
+    @user == user
+  end
   def new?
     create?
   end
