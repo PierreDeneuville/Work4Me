@@ -1,7 +1,71 @@
 .container-demande-show {
   width: 1000px;
-  height: 600px;
+  height: 85vh;
   margin: 50px 150px 50px;
   display: flex;
   justify-content: space-around;
+
+}
+.demande-show-card-left {
+  background-color: #f4f4f4;
+  height: 90%;
+  width: 55%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px 0px;
+}
+
+
+.demande-show-card-right {
+  background-color: #f4f4f4;
+  height: 90%;
+  width: 35%;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 2px 2px 6px 0px;
+}
+.demande-show-offre {
+  border-radius: 4px;
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.demande-show-chat {
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  height: 45%;
+  width: 100%;
+  margin-top: 15px;
+}
+.demande-offre-avatar {
+  // background-color: blue;
+  width: 45%;
+  height: 100%;
+  text-align: center;
+}
+.demande-offre-description {
+  // background-color: yellow;
+  width: 45%;
+  height: 100%;
+  text-align: center;
+  padding: 5px;
+}
+.avatar-offre {
+  border-radius: 50%;
+  height: 90%;
+  width: 90%;
+}
+.demande-avatar {
+  height: 35%;
+  width: 100%;
+  border-radius: 4px;
+}
+.card-right-text {
+  border-bottom: groove #D3CCE3;
+  width: 80%;
+  margin: 10px 10% 0px;
 }

@@ -15,4 +15,16 @@
   position: fixed;
   z-index: 999;
   background-color: transparent !important;
+  width: 100%;
+  
+}
+.navbar-right {
+  display: flex;
+  align-items: right;
+  
+}
+
+#navbarSupportedContent {
+  display: flex;
+  justify-content: space-between;
 }

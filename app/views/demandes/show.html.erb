@@ -1,40 +1,46 @@
 <div class="container-demande-show">
-  <div class="card" style="width: 18rem;">
-    <% if @demande.offre.user.photo.attached? %>
-      <%= cl_image_tag @demande.offre.user.photo.key, class: "card-img-top" %>
-      <% else %>
-      <img class="card-img-top" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
+  <div class="demande-show-card-left">
+    <%= link_to offre_path(@demande.offre) do %>
+      <div class="demande-show-offre">
+        <div class="demande-offre-avatar">
+          <% if @demande.offre.user.photo.attached? %>
+            <%= cl_image_tag @demande.offre.user.photo.key, class: "avatar-offre" %>
+          <% else %>
+            <img class="avatar-offre" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
+          <% end %>
+        </div>
+        <div class="demande-offre-description">
+          <h4><%= @demande.offre.métier %></h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, ipsum excepturi!</p>
+        </div>
+      </div>
     <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @demande.offre.user.name.capitalize %>, <%= @demande.offre.métier.capitalize %></h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= @demande.offre.user.localisation.capitalize %></li>
-      <li class="list-group-item">Prix: <%= @demande.offre.prix %>€</li>
-    </ul>
-    <div class="card-body">
-      <%= link_to "Revoir l'offre", offre_path(@demande.offre), class: "card-link" %>
+    <div class="demande-show-chat">
+      <p>Ceci va devenir un chat</p>
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-header">
+  <div class="demande-show-card-right">
       <% if @demande.user.photo.attached? %>
-        <%= cl_image_tag @demande.user.photo.key, width: 300, heigth: 300 %>
+        <%= cl_image_tag @demande.user.photo.key, width: 300, height: 250, class: "demande-avatar" %>
       <% else %>
       <img class="card-img-top" style="width:18rem" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
-
       <% end %>
 
-    </div>
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-      <li class="list-group-item">Recruteur: <%= @demande.user.name.capitalize %></li>
-        <li class="list-group-item">Début de la mission: <%= @demande.date_debut %></li>
-        <li class="list-group-item">Fin de la mission: <%= @demande.date_fin %></li>
-        <li class="list-group-item">Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</li>
-        <li class="list-group-item">
+      <div class="card-right-text">
+        <p>Recruteur: <%= @demande.user.name.capitalize %></p>
+      </div>
+      <div class="card-right-text">
+        <p>Début de la mission: <%= @demande.date_debut %></p>
+      </div>
+      <div class="card-right-text">
+        <p>Fin de la mission: <%= @demande.date_fin %></p>
+      </div>
+      <div class="card-right-text">
+        <p>Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</p>
+      </div>
+      <div class="card-right-text">
+        <p>
           Etat de la demande: <% if @demande.accepte.nil? %>
                                 En attente
                               <% elsif @demande.accepte? %>
@@ -42,11 +48,7 @@
                               <% else %>
                                 <i class="fas fa-times"></i>
                               <% end %>
-        </li>
-      </ul>
-    </div>
+        </p>
+      </div>
   </div>
-
-
-
 </div>

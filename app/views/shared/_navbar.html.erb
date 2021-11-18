@@ -6,21 +6,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
-      <% if current_user.class == User %>
-        <%= link_to "Créer une offre", new_offre_path, class: "offre-new" %>
+      <div class='d-flex align-items-center'>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <% if user_signed_in? %>
+          <%= link_to "Créer une offre", new_offre_path, class: "offre-new" %>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="navbar-right">
         <%= link_to "Mes contrats", root_path, class:"lien-profil" %>
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-large", alt: "avatar-large" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign" %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign" %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "sign-in" %>
       <% end %>
+      </div>  
     </div>
 
   </div>
