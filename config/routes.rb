@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: "offres#index"
   resources :offres
   resources :demandes, only: %i[new create show]
+  resources :users, only: [:show]
 end

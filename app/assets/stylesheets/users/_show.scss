@@ -1,0 +1,77 @@
+.user-profile-card {
+  display: flex;
+  background-color: #f4f4f4;
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px 0px;
+}
+
+.user-profile-card-info {
+  font-size: 24px;
+}
+
+
+.user-lists-card {
+  background-color: #f4f4f4;
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px 0px;
+}
+
+
+
+.card-demande {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0px;
+}
+
+.card-demande img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-demande h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-demande h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.card-demande p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-demande .card-demande-headers {
+  padding: 16px;
+  text-align: center;
+  width: 25%;
+}
+.card-demande .card-demande-description {
+  padding: 16px;
+  width: 30%;
+}
+
+.card-demande .card-demande-infos {
+  padding: 16px;
+}
