@@ -8,8 +8,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class='d-flex align-items-center'>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <%= form_tag offres_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control mr-2", placeholder: "Find a movie"%>
+          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+          <% end %>
+          <%# <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button> %>
         </form>
         <% if user_signed_in? %>
           <%= link_to "Créer une offre", new_offre_path, class: "offre-new" %>

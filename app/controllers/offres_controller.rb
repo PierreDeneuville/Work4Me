@@ -6,7 +6,12 @@ class OffresController < ApplicationController
   end
 
   def index
-    @offres = policy_scope(Offre)
+    if params[:query].present?
+      sql_query = "métier ILIKE :query"
+      @offres = policy_scope(Offre).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @offres = policy_scope(Offre)
+    end
   end
 
   def new
