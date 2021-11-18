@@ -4,8 +4,10 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1519003300449-424ad0405076?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60);">
   <div class="container-banner">
-    <h1>Work 4 Me !</h1>
-    <p>Make your life easier. Find someone to do your work!</p>
+    <h1 class="title-index">Work 4 Me !</h1>
+    <div class="paragraphe animate" style="height: 30px">
+      <p class="text-animation" style="margin: 0"></p>
+    </div>
   </div>
 </div>
 
@@ -13,27 +15,22 @@
 <div class="my-container">
 
   <% @offres.each do |offre|%>
-
-    <div class="card" style="width: 18rem;">
-      <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= offre.user.name.capitalize %>, <%= offre.métier %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <%= link_to "Plus d'infos", offre_path(offre), class: "btn btn-primary" %>
+    <%= link_to offre_path(offre) do %>
+  
+      <div class="card" style="width: 18rem;">
+        <% if offre.user.photo.attached? %>
+          <%= cl_image_tag offre.user.photo.key, class: "card-img-top" %>
+        <% else %>
+          <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="...">
+        <% end %>      
+        <div class="card-body">
+          <h5 class="card-title"><%= offre.user.name.capitalize %>, <%= offre.métier %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <p>
-    This footer is made with <i class="fas fa-heart"></i> by some guys
-  </p>
-</div>
+
+

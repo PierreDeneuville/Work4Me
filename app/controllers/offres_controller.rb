@@ -6,7 +6,11 @@ class OffresController < ApplicationController
   end
 
   def index
-    @offres = policy_scope(Offre)
+    if params[:query].present?
+      @offres = policy_scope(Offre).global_search(params[:query])
+    else
+      @offres = policy_scope(Offre)
+    end
   end
 
   def new
