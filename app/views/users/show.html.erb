@@ -1,0 +1,126 @@
+<div class=container>
+
+
+  <div class="user-profile-card" >
+    <div class="user-profile-card-picture">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key, :transformation=>[
+          {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+          {:radius=>"max"},
+          {:width=>200, :crop=>"scale"}
+          ]) %>
+      <p>mettre à jour la photo (ou pas...)</p>
+      <% end %>
+    </div>
+
+    <div class="user-profile-card-info">
+      <h3>Bonjour, je m'appelle <%= @user.name %></h3>
+      <%= image_tag 'pin.svg' %><%= @user.localisation  %>
+      <br>
+      <p><%= @user.offres.count %> offres publiées  </p>
+      <%= link_to "Publier une offre", new_offre_path, class: "offre-new" %>
+    </div>
+  </div>
+
+
+
+  <div class="user-lists-card">
+
+    <h3>Mes offres validées (+ mes demandes validés sur d'autres offres)</h3>
+      <% @user.offres.each do |offre| %>
+        <div class="card-demande">
+          <div class="card-demande-headers">
+            <h2><%= offre.métier %></h2>
+          </div>
+          <div class="card-demande-infos">
+            <h3><%= offre.prix %>€ / jour</h3>
+          </div>
+          <div class="card-demande-description">
+            <p>desc: <%= offre.description %></p>
+          </div>
+        </div>
+      <% end %>
+
+
+
+    <h3>Mes réservations envoyées </h3>
+    <% @user.demandes.each do |demande| %>
+      <div class="card-demande">
+        <div class="card-demande-headers">
+          <h2><%= demande.offre.user.name %> </h2>
+          <h2><%= demande.offre.métier %> </h2>
+        </div>
+        <div class="card-demande-infos">
+          <h3><%= demande.offre.prix %>€ / jour </h3>
+        </div>
+        <div class="card-demande-description">
+          <p>desc : <%= demande.offre.description %> </p>
+        </div>
+        <div class="card-demande-infos">
+          <h2>Du <%= demande.date_debut %></h2>
+          <h2>au <%= demande.date_fin %></h2>
+        </div>
+        <div class="card-demande-infos">
+          <h2>Status:
+            <% if demande.accepte.nil? %>
+              ⏳
+            <% elsif demande.accepte == true %>
+              👍
+            <% else %>
+              🖕
+            <% end %>
+          </h2>
+        </div>
+      </div>
+    <% end %>
+
+
+
+    <h3>Mes réservations reçues</h3>
+    <% @user.offres.each do |offre| %>
+      <h5><%= offre.métier %></h5>
+
+      <% Demande.where(offre_id: offre.id).each do |demande| %>
+        <div class="card-demande">
+
+          <div class="card-demande-headers">
+            <h2><%= demande.user.name %> </h2>
+          </div>
+
+          <div class="card-demande-infos">
+            <h3><%= demande.offre.prix %>€ / jour </h3>
+          </div>
+
+          <div class="card-demande-infos">
+            <h2><%= image_tag 'pin-small.svg' %><%= demande.user.localisation %> </h2>
+          </div>
+
+
+          <div class="card-demande-infos">
+            <h2>Du <%= demande.date_debut %></h2>
+            <h2>au <%= demande.date_fin %></h2>
+          </div>
+
+          <div class="card-demande-infos">
+            <h2>Status:
+              <% if demande.accepte.nil? %>
+                ⏳
+              <% elsif demande.accepte == true %>
+                👍
+              <% else %>
+                🖕
+              <% end %>
+            </h2>
+          </div>
+
+
+        </div>
+      <% end %>
+
+
+    <% end %>
+
+    <%= link_to image_tag('slavery-whip.svg'), root_path %>
+  </div>
+
+</div>
