@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import {navbarHome } from '../components/_navbar.js';
+import { textAnimation } from '../plugins/_textanimation.js'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,4 +34,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   navbarHome();
+  textAnimation();
 });
