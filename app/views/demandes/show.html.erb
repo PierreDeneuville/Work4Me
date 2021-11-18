@@ -32,10 +32,10 @@
         <p>Recruteur: <%= @demande.user.name.capitalize %></p>
       </div>
       <div class="card-right-text">
-        <p>Début de la mission: <%= @demande.date_debut %></p>
+        <p>Début de la mission: <%= @demande.date_debut.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
-        <p>Fin de la mission: <%= @demande.date_fin %></p>
+        <p>Fin de la mission: <%= @demande.date_fin.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
         <p>Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</p>
