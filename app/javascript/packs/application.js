@@ -24,8 +24,10 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { cleanData } from "jquery";
 import {navbarHome } from '../components/_navbar.js';
-import { textAnimation } from '../plugins/_textanimation.js'
+// import { textAnimation } from '../plugins/_textanimation.js'
+import { chat, scrollDown } from '../plugins/_chat.js'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,6 +35,9 @@ import { textAnimation } from '../plugins/_textanimation.js'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  scrollDown();
   navbarHome();
-  textAnimation();
+  // textAnimation();
+  chat();
+  // active();
 });

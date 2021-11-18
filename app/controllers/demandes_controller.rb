@@ -1,6 +1,7 @@
 class DemandesController < ApplicationController
   def show
     @demande = Demande.find(params[:id])
+    @message = Message.new
     authorize @demande
   end
 
