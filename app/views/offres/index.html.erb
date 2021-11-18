@@ -5,7 +5,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1519003300449-424ad0405076?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60);">
   <div class="container-banner">
     <h1 class="title-index">Work 4 Me !</h1>
-    <%# <p class="text-animation"></p> %>
+    <div class="paragraphe animate" style="height: 30px">
+      <p class="text-animation" style="margin: 0"></p>
+    </div>
   </div>
 </div>
 
@@ -24,7 +26,6 @@
         <div class="card-body">
           <h5 class="card-title"><%= offre.user.name.capitalize %>, <%= offre.métier %></h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <%# <%= @offre.description.first(100) + '...' %> 
         </div>
       </div>
     <% end %>

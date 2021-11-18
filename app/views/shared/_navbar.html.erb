@@ -24,6 +24,8 @@
         <%= link_to "Mes contrats", root_path, class:"lien-profil" %>
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-large", alt: "avatar-large" %>
+        <% else %>
+          <i class="fas fa-user-ninja"></i>
         <% end %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign" %>
       <% else %>
