@@ -15,4 +15,58 @@
   position: fixed;
   z-index: 999;
   background-color: transparent !important;
+  width: 100%;
+  
+}
+.navbar-right {
+  display: flex;
+  align-items: right;
+  
+}
+
+#navbarSupportedContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .navbar-lewagon-home:hover {
+//   background-color: #f4f4f4 !important;
+// }
+
+.offre-new {
+ padding: 6px 10px;
+ border: 1px solid;
+ border-radius: 20px;
+ margin: 0px 10px;
+ color: #1EDD88;
+ border-color: #1EDD88;
+}
+
+.lien-profil {
+  font-size: 20px;
+  border: 1px solid;
+  padding: 0px 5px;
+  border-radius: 20px;
+}
+.lien-profil:hover {
+  color: #1EDD88;
+}
+
+.sign {
+  font-size: 20px;
+  box-shadow: 0 0 0 0;
+}
+
+.sign:hover {
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 0px 5px;
+  animation: pulse 1.3s infinite;
+}
+
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 5px rgba(255, 0, 0, 0.01);
+  }
 }
