@@ -21,7 +21,7 @@
       </div>
       <% if user_signed_in? %>
         <div class="navbar-right">
-        <%= link_to "Mes contrats", root_path, class:"lien-profil" %>
+        <%= link_to "Mes contrats", user_path(current_user), class:"lien-profil" %>
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-large", alt: "avatar-large" %>
         <% else %>
@@ -31,7 +31,7 @@
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "sign-in" %>
       <% end %>
-      </div>  
+      </div>
     </div>
 
   </div>

@@ -1,5 +1,7 @@
 <div class=container>
 
+<%# -user-profile %>
+
 
   <div class="user-profile-card" >
     <div class="user-profile-card-picture">
@@ -9,7 +11,7 @@
           {:radius=>"max"},
           {:width=>200, :crop=>"scale"}
           ]) %>
-      <p>mettre à jour la photo (ou pas...)</p>
+      <p>modifier ma photo (ou pas...)</p>
       <% end %>
     </div>
 
@@ -92,7 +94,7 @@
           </div>
 
           <div class="card-demande-infos">
-            <h2><%= image_tag 'pin-small.svg' %><%= demande.user.localisation %> </h2>
+            <h2><%= demande.user.localisation %> </h2>
           </div>
 
 
