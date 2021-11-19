@@ -14,15 +14,15 @@
         <% else %>
           <%= image_tag 'ninja-profile.png', class:'avatar-big' %>
       <% end %>
-      <p>modifier ma photo (ou pas...)</p>
+      <%# <p>modifier ma photo (ou pas...)</p> %>
     </div>
 
     <div class="user-profile-card-info">
       <h3>Bonjour, je m'appelle <%= @user.name %></h3>
-      <%= image_tag 'pin.svg' %><%= @user.localisation  %>
+      <%= image_tag 'pin.svg' %>  <%= @user.localisation  %>
       <br>
-      <p><%= @user.offres.count %> offres publiées  </p>
-      <%= link_to "Publier une offre", new_offre_path, class: "offre-new" %>
+      <p><%= @user.offres.count %>   offres publiées</p>
+      <p><%= link_to "Publier une offre", new_offre_path, class: "offre-new" %></p>
     </div>
   </div>
 
@@ -59,8 +59,10 @@
             <h2><%= demande.offre.métier %> </h2>
           </div>
           <div class="card-demande-infos">
-            <h3><%= demande.offre.prix %>€ / jour </h3>
+            <h3><%= demande.offre.prix %> € / jour </h3>
+            <h3><%= (demande.date_fin - demande.date_debut).to_i * demande.offre.prix %> €</h3>
           </div>
+
           <div class="card-demande-description">
             <p>desc : <%= demande.offre.description %> </p>
           </div>
@@ -98,7 +100,8 @@
             </div>
 
             <div class="card-demande-infos">
-              <h3><%= demande.offre.prix %>€ / jour </h3>
+              <h3><%= demande.offre.prix %> € / jour </h3>
+              <h3><%= (demande.date_fin - demande.date_debut).to_i * demande.offre.prix %> €</h3>
             </div>
 
             <div class="card-demande-infos">
@@ -122,6 +125,8 @@
                 <% end %>
               </h2>
             </div>
+
+
 
           </div>
         <% end %>
