@@ -1,6 +1,6 @@
-const refresh = () => {
+// const refresh = () => {
 
-}
+// }
 
 
 const scrollDown = () => {
@@ -37,9 +37,9 @@ const clean = () => {
     }
   });
 }
-// const active = () => {
-//   const icone = document.querySelector()
-// }
+const active = () => {
+  const icone = document.querySelector()
+}
 
 
 export { chat, scrollDown };
