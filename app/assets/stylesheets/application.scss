@@ -24,9 +24,12 @@
 }
 
 .avatar-large {
-  margin: 0px 15px 0px;
+  // margin: 0px 15px 0px;
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
 }
 a:hover {
   text-decoration: none;
 }
-
