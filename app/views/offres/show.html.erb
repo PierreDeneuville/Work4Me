@@ -10,11 +10,13 @@
     <h4 class="prix">Prix/Jour : <strong><%= @offre.prix %></strong> euros </h4>
     <h4 class="description-show">Description :</h4>
       <%= @offre.description %>
-        <div class="btn-container">
-          <button class="btn btn-offre-reserver">
-            <%= link_to "Réserver", new_demande_path(@offre) %>
-          </button>
-        </div>
+        <% if current_user != @offre.user %>
+          <div class="btn-container">
+            <button class="btn btn-offre-reserver">
+              <%= link_to "Réserver", new_demande_path(@offre) %>
+            </button>
+          </div>
+        <% end %>
   </div>
 
 </div>

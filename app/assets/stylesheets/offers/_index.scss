@@ -24,7 +24,9 @@ body {
   transform: scale(1.05);
   box-shadow: 6px 6px 6px 0px;
 }
-
+.card-img-top {
+  height: 50%;
+}
 
 .card-title {
   font-weight: bold;
