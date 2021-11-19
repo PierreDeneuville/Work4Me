@@ -12,7 +12,7 @@
         </div>
         <div class="demande-offre-description">
           <h4><%= @demande.offre.métier %></h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, ipsum excepturi!</p>
+          <p><%= @demande.offre.description %></p>
         </div>
       </div>
     <% end %>
@@ -32,10 +32,10 @@
         <p>Recruteur: <%= @demande.user.name.capitalize %></p>
       </div>
       <div class="card-right-text">
-        <p>Début de la mission: <%= @demande.date_debut %></p>
+        <p>Début de la mission: <%= @demande.date_debut.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
-        <p>Fin de la mission: <%= @demande.date_fin %></p>
+        <p>Fin de la mission: <%= @demande.date_fin.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
         <p>Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</p>
