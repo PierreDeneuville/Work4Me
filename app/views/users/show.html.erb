@@ -26,11 +26,9 @@
     </div>
   </div>
 
-
-
   <div class="user-lists-card">
 
-    <h3>Mes offres validées (+ mes demandes validés sur d'autres offres)</h3>
+    <h3>Mes offres</h3>
       <% @user.offres.each do |offre| %>
         <%= link_to offre_path(offre) do %>
           <div class="card-demande">
@@ -47,9 +45,7 @@
         <% end %>
       <% end %>
 
-
-
-    <h3>Mes réservations envoyées </h3>
+    <h3>J'ai réservé : </h3>
     <% @user.demandes.each do |demande| %>
       <%= link_to demande_path(demande) do %>
 
@@ -85,9 +81,7 @@
       <% end %>
     <% end %>
 
-
-
-    <h3>Mes réservations reçues</h3>
+    <h3>On m'a réservé :</h3>
     <% @user.offres.each do |offre| %>
       <% if Demande.where(offre_id: offre).length >= 1 %>
         <h5><%= offre.métier %></h5>
@@ -109,7 +103,6 @@
                 <h2><%= demande.user.localisation %> </h2>
               </div>
 
-
               <div class="card-demande-infos">
                 <h2>Du <%= demande.date_debut.strftime("%d %b. %Y") %></h2>
                 <h2>au <%= demande.date_fin.strftime("%d %b. %Y") %></h2>
@@ -126,9 +119,6 @@
                   <% end %>
                 </h2>
               </div>
-
-
-
             </div>
           <% end %>
         <% end %>
