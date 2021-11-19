@@ -1,62 +1,84 @@
-h1 {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  text-align: center;
-}
 
 .container-show {
-  height: 65.3vh;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #f4f4f4;
-  text-align: center;
+  margin: 12px 80px 80px;
+  display: flex;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border: 3px solid rgb(212, 164, 6);
+  margin-block: auto;
+  border: inset;
+  border-radius: 16px;
+  background-color: #0001;
 }
 
+.title-show {
+  color: darkgrey;
+  font-weight: bolder;
+  text-align: center;
+  background-color: #0001;
+}
+
+.img-offre {
+  width: 35%;
+  display: flex;
+  align-self: auto;
+  margin-left: auto;
+  border-radius: 40%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.offre-description-show {
+  background-color: oldlace;
+  width: 60%;
+  height: 80vh;
+  text-align: center;
+  padding: 150px;
+  border-radius: 60px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.metier {
+  color: black;
+  font-size: xx-large;
+  border: solid;
+  border-radius: 6px;
+  margin-bottom: 50px;
+  margin-top: -43px;
+}
+
+.prix {
+  color: black;
+  margin: 50px;
+}
+
+.description-show {
+  color: black;
+  font-style: italic;
+}
 /*button reserve ton offre*/
 
-// .btn {
-//   background-color: white;
-// }
+.btn-container  {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  margin-top: 200px;
+  border-radius: 4px;
+}
 
-.btn-ghost {
+.btn-offre-reserver {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-}
-
-.btn-flat {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #1EDD88;
-  transition: background 0.3s ease;
-}
-
-.btn-flat:hover {
-  background: #1BCB7F;
-  color: white;
-}
-
-.btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
-  transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  background-color: whitesmoke;
+  text-transform: uppercase;
 }
 
-.btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
-  color: white;
+.btn-offre-reserver:hover {
+  opacity: 1;
 }
