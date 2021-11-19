@@ -8,7 +8,7 @@
   <div class="offre-description-show">
     <h2 class="metier"><%= @offre.métier %></h2>
     <h4 class="prix">Prix/Jour : <strong><%= @offre.prix %></strong> euros </h4>
-    <h4 class="description-show">Description :</h4>
+    <h4 class="description-show"></h4>
       <%= @offre.description %>
         <% if current_user != @offre.user %>
           <div class="btn-container">
