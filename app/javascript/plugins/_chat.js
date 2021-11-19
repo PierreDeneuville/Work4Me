@@ -14,7 +14,7 @@ const chat = () => {
     const content = document.querySelector("input[name='message[content]']");
     const myMessage = content.value;
     const myList = document.querySelector('#myself')
-    const currentUser = document.querySelector('#myself p');
+    const currentUser = document.querySelector('.chosen-user')
     const myself = currentUser.innerText;
     myList.insertAdjacentHTML('beforeend',
     `<div class="chatbox__messages__user-message--ind-message">
