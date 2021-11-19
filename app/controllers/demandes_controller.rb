@@ -27,6 +27,20 @@ class DemandesController < ApplicationController
     end
   end
 
+  def accepter
+    @demande = Demande.find(params[:id])
+    @demande.accepte = true
+    @demande.save
+    authorize @demande
+  end
+
+  def refuser
+    @demande = Demande.find(params[:id])
+    @demande.accepte = false
+    @demande.save
+    authorize @demande
+  end
+
   private
 
   def demande_params

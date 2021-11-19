@@ -28,6 +28,7 @@ import { cleanData } from "jquery";
 // import {navbarHome } from '../components/_navbar.js';
 import { textAnimation } from '../plugins/_textanimation.js'
 import { chat, scrollDown } from '../plugins/_chat.js'
+import { changeButton } from '../components/_button.js'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -41,6 +42,10 @@ document.addEventListener('turbolinks:load', () => {
   if (scroll) {
     scrollDown();
     chat();
+  }
+  const btnAccept = document.querySelector('.to-accept');
+  if (btnAccept) {
+    changeButton();
   }
   // active();
 });

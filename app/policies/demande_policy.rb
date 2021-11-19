@@ -12,6 +12,14 @@ class DemandePolicy < ApplicationPolicy
     true
   end
 
+  def accepter?
+    true
+  end
+
+  def refuser?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
