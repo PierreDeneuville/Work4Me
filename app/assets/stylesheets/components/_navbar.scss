@@ -21,7 +21,7 @@
 .navbar-right {
   display: flex;
   align-items: right;
-  
+  margin-right: 150px;
 }
 
 #navbarSupportedContent {
@@ -29,9 +29,6 @@
   justify-content: space-between;
 }
 
-// .navbar-lewagon-home:hover {
-//   background-color: #f4f4f4 !important;
-// }
 
 .offre-new {
  padding: 6px 10px;
@@ -40,6 +37,8 @@
  margin: 0px 10px;
  color: #1EDD88;
  border-color: #1EDD88;
+ margin-left: 12px;
+ width: 130px;
 }
 
 .lien-profil {
@@ -57,6 +56,9 @@
   box-shadow: 0 0 0 0;
 }
 
+.btn-outline-success {
+  border-radius: 20px;
+}
 .sign:hover {
   border: 1px solid;
   border-radius: 20px;
