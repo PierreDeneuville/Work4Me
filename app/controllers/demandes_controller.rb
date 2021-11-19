@@ -32,6 +32,7 @@ class DemandesController < ApplicationController
     @demande.accepte = true
     @demande.save
     authorize @demande
+    redirect_to demande_path @demande
   end
 
   def refuser
@@ -39,6 +40,7 @@ class DemandesController < ApplicationController
     @demande.accepte = false
     @demande.save
     authorize @demande
+    redirect_to demande_path @demande
   end
 
   private

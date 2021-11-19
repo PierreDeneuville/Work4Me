@@ -115,8 +115,8 @@
       <% if current_user == @demande.offre.user %>
         <div class="buttons-demande-show">
           <% if @demande.accepte.nil? %>
-            <%= button_to "Accepter", accepter_path(@demande), method: :patch, class: "btn btn-success to-accept" %>
-            <%= button_to "Refuser", refuser_path(@demande), method: :patch, class: "btn btn-danger to-refuse"%>
+            <%= button_to "Accepter", accepter_path(@demande), remote: true, method: :patch, class: "btn btn-success to-accept" %>
+            <%= button_to "Refuser", refuser_path(@demande), remote: true, method: :patch, class: "btn btn-danger to-refuse"%>
           <% end %>
         </div>
       <% end %>
