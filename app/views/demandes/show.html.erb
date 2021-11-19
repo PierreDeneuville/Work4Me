@@ -5,10 +5,14 @@
       <div class="demande-show-offre">
         <div class="demande-offre-avatar">
           <% if @demande.offre.user.photo.attached? %>
-            <%= cl_image_tag @demande.offre.user.photo.key, class: "avatar-offre" %>
-          <% else %>
-            <img class="avatar-offre" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
-          <% end %>
+            <%= cl_image_tag(@demande.offre.user.photo.key, :transformation=>[
+                                                    {:gravity=>"face", :height=>350, :width=>400, :crop=>"crop"},
+                                                    {:radius=>"max"},
+                                                    {:width=>200, :crop=>"scale"}
+                                                    ]) %>
+        <% else %>
+          <%= image_tag 'ninja-profile.png', class:'avatar-big' %>
+      <% end %>
         </div>
         <div class="demande-offre-description">
           <h4><%= @demande.offre.métier %></h4>
@@ -76,9 +80,13 @@
 
   <div class="demande-show-card-right">
       <% if @demande.user.photo.attached? %>
-        <%= cl_image_tag @demande.user.photo.key, width: 300, height: 250, class: "demande-avatar" %>
-      <% else %>
-      <img class="card-img-top" style="width:18rem" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
+        <%= cl_image_tag(@demande.user.photo.key, :transformation=>[
+                                                {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+                                                {:radius=>"max"},
+                                                {:width=>200, :crop=>"scale"}
+                                                ]) %>
+        <% else %>
+          <%= image_tag 'ninja-profile.png', class:'avatar-big' %>
       <% end %>
 
       <div class="card-right-text">
