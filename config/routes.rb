@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :demandes, only: %i[new create show] do
     resources :messages, only: %i[create]
   end
-
+  patch "demandes/:id", to: "demandes#accepter", as: :accepter
+  patch "demandes/:id", to: "demandes#refuser", as: :refuser
 end

@@ -102,7 +102,7 @@
         <p>Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</p>
       </div>
       <div class="card-right-text">
-        <p>
+        <p class="etat-demande">
           Etat de la demande: <% if @demande.accepte.nil? %>
                                 En attente
                               <% elsif @demande.accepte? %>
@@ -112,5 +112,13 @@
                               <% end %>
         </p>
       </div>
+      <% if current_user == @demande.offre.user %>
+        <div class="buttons-demande-show">
+          <% if @demande.accepte.nil? %>
+            <%= button_to "Accepter", accepter_path(@demande), remote: true, method: :patch, class: "btn btn-success to-accept" %>
+            <%= button_to "Refuser", refuser_path(@demande), remote: true, method: :patch, class: "btn btn-danger to-refuse"%>
+          <% end %>
+        </div>
+      <% end %>
   </div>
 </div>
