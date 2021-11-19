@@ -89,49 +89,50 @@
 
     <h3>Mes réservations reçues</h3>
     <% @user.offres.each do |offre| %>
-      <h5><%= offre.métier %></h5>
+      <% if Demande.where(offre_id: offre).length >= 1 %>
+        <h5><%= offre.métier %></h5>
 
-      <% Demande.where(offre_id: offre.id).each do |demande| %>
-        <%= link_to demande_path(demande) do %>
-          <div class="card-demande">
+        <% Demande.where(offre_id: offre.id).each do |demande| %>
+          <%= link_to demande_path(demande) do %>
+            <div class="card-demande">
 
-            <div class="card-demande-headers">
-              <h2><%= demande.user.name %> </h2>
+              <div class="card-demande-headers">
+                <h2><%= demande.user.name %> </h2>
+              </div>
+
+              <div class="card-demande-infos">
+                <h3><%= demande.offre.prix %> € / jour </h3>
+                <h3><%= (demande.date_fin - demande.date_debut).to_i * demande.offre.prix %> €</h3>
+              </div>
+
+              <div class="card-demande-infos">
+                <h2><%= demande.user.localisation %> </h2>
+              </div>
+
+
+              <div class="card-demande-infos">
+                <h2>Du <%= demande.date_debut.strftime("%d %b. %Y") %></h2>
+                <h2>au <%= demande.date_fin.strftime("%d %b. %Y") %></h2>
+              </div>
+
+              <div class="card-demande-infos">
+                <h2>Status:
+                  <% if demande.accepte.nil? %>
+                    ⏳
+                  <% elsif demande.accepte == true %>
+                    👍
+                  <% else %>
+                    🖕
+                  <% end %>
+                </h2>
+              </div>
+
+
+
             </div>
-
-            <div class="card-demande-infos">
-              <h3><%= demande.offre.prix %> € / jour </h3>
-              <h3><%= (demande.date_fin - demande.date_debut).to_i * demande.offre.prix %> €</h3>
-            </div>
-
-            <div class="card-demande-infos">
-              <h2><%= demande.user.localisation %> </h2>
-            </div>
-
-
-            <div class="card-demande-infos">
-              <h2>Du <%= demande.date_debut.strftime("%d %b. %Y") %></h2>
-              <h2>au <%= demande.date_fin.strftime("%d %b. %Y") %></h2>
-            </div>
-
-            <div class="card-demande-infos">
-              <h2>Status:
-                <% if demande.accepte.nil? %>
-                  ⏳
-                <% elsif demande.accepte == true %>
-                  👍
-                <% else %>
-                  🖕
-                <% end %>
-              </h2>
-            </div>
-
-
-
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-
     <% end %>
 
     <%= link_to image_tag('slavery-whip.svg'), root_path %>
