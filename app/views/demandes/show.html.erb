@@ -12,14 +12,67 @@
         </div>
         <div class="demande-offre-description">
           <h4><%= @demande.offre.métier %></h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, ipsum excepturi!</p>
+          <p><%= @demande.offre.description %></p>
         </div>
       </div>
     <% end %>
-    <div class="demande-show-chat">
-      <p>Ceci va devenir un chat</p>
+  <div class='container-chat' ng-cloak ng-app="chatApp">
+    <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+      <div class='chatbox__user-list'>
+        <h1>Utilisateurs</h1>
+        <% if current_user == @demande.user %>
+          <div class='chatbox__user--active'>
+            <p class="chosen-user"><%= @demande.user.name.capitalize %></p>
+          </div>
+          <div class='chatbox__user--active'>
+            <p><%= @demande.offre.user.name.capitalize %></p>
+          </div>
+        <% else %>
+          <div class='chatbox__user--active'>
+            <p><%= @demande.user.name.capitalize %></p>
+          </div>
+          <div class='chatbox__user--active'>
+            <p class="chosen-user"><%= @demande.offre.user.name.capitalize %></p>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="chat-scroll">
+        <div class="chatbox__messages" ng-repeat="message in messages" id="other">
+          <div class="chatbox__messages__user-message">
+            <% @demande.messages.where.not(user_id: current_user).each do |message| %>
+              <div class="chatbox__messages__user-message--ind-message">
+                <p class="name"><%= message.user.name.capitalize %></p>
+                <br/>
+                <p class="message"><%= message.content %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="chatbox__messages" ng-repeat="message in messages" id="myself">
+          <div class="chatbox__messages__user-message">
+            <% @demande.messages.where(user_id: current_user).each do |message| %>
+              <div class="chatbox__messages__user-message--ind-message">
+                <p class="name"><%= current_user.name.capitalize %></p>
+                <br/>
+                <p class="message"><%= message.content %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+      <%= simple_form_for [@demande, @message], html: { class: "test"} do |f| %>
+        <%= f.input_field :content, placeholder: "Entrez votre message" %>
+      <% end %>
+
     </div>
   </div>
+  </div>
+
+
 
   <div class="demande-show-card-right">
       <% if @demande.user.photo.attached? %>
@@ -32,10 +85,10 @@
         <p>Recruteur: <%= @demande.user.name.capitalize %></p>
       </div>
       <div class="card-right-text">
-        <p>Début de la mission: <%= @demande.date_debut %></p>
+        <p>Début de la mission: <%= @demande.date_debut.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
-        <p>Fin de la mission: <%= @demande.date_fin %></p>
+        <p>Fin de la mission: <%= @demande.date_fin.strftime("%d %b. %Y") %></p>
       </div>
       <div class="card-right-text">
         <p>Prix total: <%= (@demande.date_fin - @demande.date_debut).to_i * @demande.offre.prix %>€</p>
@@ -53,84 +106,3 @@
       </div>
   </div>
 </div>
-
-
-<div class='container-chat' ng-cloak ng-app="chatApp">
-  <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
-    <div class='chatbox__user-list'>
-      <h1>Utilisateurs</h1>
-      <div class='chatbox__user--active'>
-        <p><%= @demande.user.name.capitalize %></p>
-      </div>
-      <div class='chatbox__user--active'>
-        <p><%= @demande.offre.user.name.capitalize %></p>
-      </div>
-    </div>
-
-
-    <div class="chat-scroll">
-      <div class="chatbox__messages" ng-repeat="message in messages" id="other">
-        <div class="chatbox__messages__user-message">
-          <% @demande.messages.where.not(user_id: current_user).each do |message| %>
-            <div class="chatbox__messages__user-message--ind-message">
-              <p class="name"><%= message.user.name.capitalize %></p>
-              <br/>
-              <p class="message"><%= message.content %></p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="chatbox__messages" ng-repeat="message in messages" id="myself">
-        <div class="chatbox__messages__user-message">
-          <% @demande.messages.where(user_id: current_user).each do |message| %>
-            <div class="chatbox__messages__user-message--ind-message">
-              <p class="name"><%= current_user.name.capitalize %></p>
-              <br/>
-              <p class="message"><%= message.content %></p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-    <%= simple_form_for [@demande, @message], html: { class: "test"} do |f| %>
-      <%= f.input_field :content, placeholder: "Entrez votre message" %>
-    <% end %>
-
-  </div>
-</div>
-
-</div>
-
-
-
-
-
-
-
-    <div class="chat-scroll">
-      <% @demande.messages.order(:created_at).each do |message| %>
-          <% if message == current_user %>
-            <div class="chatbox__messages" ng-repeat="message in messages" id="myself">
-              <div class="chatbox__messages__user-message">
-                <div class="chatbox__messages__user-message--ind-message">
-                  <p class="name"><%= message.user.name.capitalize %></p>
-                  <br/>
-                  <p class="message"><%= message.content %></p>
-                </div>
-              </div>
-            </div>
-          <% else %>
-            <div class="chatbox__messages" ng-repeat="message in messages" id="other">
-              <div class="chatbox__messages__user-message">
-                <div class="chatbox__messages__user-message--ind-message">
-                  <p class="name"><%= message.user.name.capitalize %></p>
-                  <br/>
-                  <p class="message"><%= message.content %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-      <% end %>
-    </div>
