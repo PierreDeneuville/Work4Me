@@ -9,6 +9,8 @@
   border: inset;
   border-radius: 16px;
   background-color: #0001;
+  background: linear-gradient(45deg, grey, black);
+
 }
 
 .title-show {
@@ -19,7 +21,7 @@
 }
 
 .img-offre {
-  width: 45vh;
+  width: 35%;
   display: flex;
   align-self: auto;
   margin-left: auto;
@@ -27,7 +29,7 @@
   margin-top: 50px;
   margin-bottom: 50px;
   border-style: double;
-  border-color: gold;
+  border-color: blue;
 }
 
 .offre-description-show {
@@ -40,6 +42,8 @@
   margin: auto;
   margin-top: auto;
   margin-bottom: auto;
+  border-style: double;
+  border-color: blue;
 }
 
 .metier {
